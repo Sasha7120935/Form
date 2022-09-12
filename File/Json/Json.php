@@ -26,13 +26,3 @@ class Json extends File
 
     }
 }
-
-$type = $_POST['type'];
-$number = $_POST['number'];
-$language = $_POST['language'];
-$format = $_POST['format'];
-if ( $format === 'json' ) {
-    $obj = new Json( $type, $number, $language, $format );
-    $obj->get_json_file( $type, $number, $language, $format );
-
-}

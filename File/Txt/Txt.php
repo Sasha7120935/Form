@@ -27,12 +27,3 @@ class Txt extends File
     }
 
 }
-
-$type = $_POST['type'];
-$number = $_POST['number'];
-$language = $_POST['language'];
-$format = $_POST['format'];
-if ($format === 'txt') {
-    $obj = new Txt( $type, $number, $language, $format );
-    $obj->get_txt_file( $type, $number, $language, $format );
-}

@@ -37,12 +37,4 @@ class Csv extends File
         return  $arr;
     }
 }
-$type = $_POST['type'];
-$number = $_POST['number'];
-$language = $_POST['language'];
-$format = $_POST['format'];
-if ($format === 'csv') {
-    $obj = new Csv( $type, $number, $language, $format );
-    $obj ->get_csv_file( $type, $number, $language, $format );
-}
 
