@@ -21,8 +21,8 @@ class Json extends File
             fclose( $fp );
             chmod( $filename, 0777 );
             unset( $file );
-            return $data;
         }
+        return $data;
 
     }
 }
