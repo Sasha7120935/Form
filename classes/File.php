@@ -1,6 +1,5 @@
 <?php
 
-namespace Form\File;
 
 class File
 {
@@ -18,21 +17,28 @@ class File
         $this->format = $format;
     }
 
-    public function file_download( $file )
+    public static function fileDownload($file)
     {
-        if (file_exists( $file )) {
+        if (file_exists($file)) {
             header('Content-Description: File Transfer');
             header('Content-Type: application/octet-stream');
-            header('Content-Disposition: attachment; filename="' . basename( $file ) );
+            header('Content-Disposition: attachment; filename="' . basename($file));
             header('Expires: 0');
             header('Cache-Control: must-revalidate');
             header('Pragma: public');
-            header('Content-Length: ' . filesize( $file ) );
-            readfile( $file );
+            header('Content-Length: ' . filesize($file));
+            readfile($file);
             exit;
         }
         return $file;
     }
 
+    public static function getData()
+    {
+        $type = $_POST['type'];
+        $number = $_POST['number'];
+        $language = $_POST['language'];
+        return file_get_contents('https://fakerapi.it/api/v1/' . $type . '?_locale=' . $language . '&_quantity=' . $number);
+    }
 
 }
