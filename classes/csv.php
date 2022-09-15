@@ -1,5 +1,7 @@
 <?php
 
+namespace Classes;
+
 class Csv extends File
 {
     public function __construct($type, $number, $language, $format)
@@ -21,6 +23,7 @@ class Csv extends File
             chmod($filename, 0777);
             unset($file);
         }
+
         return self::getData();
     }
 
@@ -28,19 +31,15 @@ class Csv extends File
     {
         $level++;
         $arr = [];
+
         if (!is_array($data)) {
             $arr[] = $data;
         }
+
         foreach ($data as $arrayItem) {
             $arr = array_merge($arr, self::processArray($arrayItem, $level));
         }
+
         return $arr;
     }
-}
-$type = $_POST['type'];
-$number = $_POST['number'];
-$language = $_POST['language'];
-$format = $_POST['format'];
-if ($format === 'csv') {
-    Csv::getCsvFile($type, $number, $language,$format);
 }

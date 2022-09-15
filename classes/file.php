@@ -1,5 +1,6 @@
 <?php
 
+namespace Classes;
 
 class File
 {
@@ -30,6 +31,7 @@ class File
             readfile($file);
             exit;
         }
+
         return $file;
     }
 
@@ -38,6 +40,7 @@ class File
         $type = $_POST['type'];
         $number = $_POST['number'];
         $language = $_POST['language'];
+
         return file_get_contents('https://fakerapi.it/api/v1/' . $type . '?_locale=' . $language . '&_quantity=' . $number);
     }
 
